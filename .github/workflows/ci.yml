@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Syntax checks
+        run: npm run check
+
+      - name: Offline probes
+        run: |
+          node dev/check-locales.mjs
+          node dev/probe-status.mjs
+          node dev/probe-dots.mjs
+          node dev/probe-macos.mjs
+          node dev/probe-delete.mjs
+          node dev/probe-shortcut.mjs
+          node dev/probe-restart.mjs
+          node dev/probe-tip.mjs
+          node dev/probe-registry-logic.mjs

@@ -1,0 +1,72 @@
+{
+  "name": "dsh-version-manager",
+  "version": "1.0.0",
+  "description": "DSH install management, automatic upgrades, desktop shortcuts, and quick restarts.",
+  "type": "module",
+  "main": "./index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccsdyc/dsh-version-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ccsdyc/dsh-version-manager/issues"
+  },
+  "homepage": "https://github.com/ccsdyc/dsh-version-manager#readme",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "version-manager",
+    "upgrade",
+    "desktop",
+    "restart"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "install.mjs",
+    "install.cmd",
+    "install.sh",
+    "locale/*.json",
+    "icon.svg",
+    "assets/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check client.js && node --check install.mjs",
+    "prepublishOnly": "npm run check"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+* text=auto eol=lf
+
+# Windows command scripts are easier to edit and run with CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary artwork.
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary

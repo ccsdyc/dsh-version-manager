@@ -1,0 +1,23 @@
+# Dependencies and caches
+node_modules/
+.tmp-cache/
+market/
+dist/
+coverage/
+
+# npm / pnpm artifacts
+*.tgz
+npm-debug.log*
+pnpm-debug.log*
+*.log
+
+# Local environment and editors
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated archives
+*.zip
