@@ -1,5 +1,7 @@
 # dsh update manager
 
+English | [中文](README.zh.md)
+
 A Harness bundle that adds a **版本管理 / Versions** entry to the left navigation
 and a panel with three areas behind a segmented switcher. Only the open area is
 rendered; a single status line under the switcher describes what that area runs
@@ -293,7 +295,8 @@ The package is self-contained. `index.js` uses only Node built-ins, `client.js`
 uses only the host-provided React loader, and `package.json` declares no npm
 dependencies. Every runtime asset is inside the package and listed in `files`:
 `assets/dashang.jpg`, `assets/tray.ico`, `icon.svg`,
-`locale/*.json`, `cordis.patch.yml`, `LICENSE`, and `README.md`. The Host
+`locale/*.json`, `cordis.patch.yml`, `LICENSE`, `README.md`, and `README.zh.md`.
+The Host
 resolves the tip QR and shortcut icon from its own module URL, so a copied or
 packed directory works from any location. `dev/` and `tools/` are excluded from
 the npm `files` list; a zip is a folder copy, so both are available there.
@@ -327,11 +330,11 @@ package is published as `dsh-update-manager`; generate a self-hosted index
 whose source is npm:
 
 ```powershell
-node tools/make-market-index.mjs --version 1.0.0 --out market/index.json
+node tools/make-market-index.mjs --version 1.1.0 --out market/index.json
 ```
 
 The tool embeds `icon.svg` and the locale description and prints the
-`dsh-update-manager@1.0.0` install spec. Put `index.json` on an HTTPS static
+`dsh-update-manager@1.1.0` install spec. Put `index.json` on an HTTPS static
 host and add that URL under DSH's plugin-market index settings.
 
 For a commit-pinned Git release instead, add `--source git --repo

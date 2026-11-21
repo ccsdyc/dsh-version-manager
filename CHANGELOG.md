@@ -3,10 +3,12 @@
 All notable changes to this plugin are documented here. The format follows
 Keep a Changelog, and versions follow Semantic Versioning.
 
-## [Unreleased]
+## [1.1.0] - 2026-11-21
 
 ### Added
 
+- A Chinese README (`README.zh.md`) next to the English one, both shipping in
+  the package; the two link to each other.
 - The panel heading shows the plugin's version after its name. The Host reads it
   from its own `package.json` and sends it with the list payload
   (`runtime.pluginVersion`), so it never goes stale against the installed copy.

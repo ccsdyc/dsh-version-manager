@@ -7,7 +7,7 @@
  * for a commit-pinned release.
  *
  * Usage:
- *   node tools/make-market-index.mjs [--version 1.0.0] [--out market/index.json]
+ *   node tools/make-market-index.mjs [--version 1.1.0] [--out market/index.json]
  *   node tools/make-market-index.mjs --source git --repo https://github.com/user/repo \
  *     --commit <40-hex-sha> [--path <repo-subdir>] [--out market/index.json]
  */

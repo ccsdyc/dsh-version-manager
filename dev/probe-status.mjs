@@ -232,11 +232,12 @@ check('restarted process: no restart action', current.action === null, current.a
 
 // The page heading carries the plugin's own version, which only the Host can
 // read (it owns package.json), so it arrives with the list payload.
+const manifestVersion = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version
 const titled = render({
   ...inventoryFor('0.2.2-alpha.3'),
-  runtime: { ...inventoryFor('0.2.2-alpha.3').runtime, pluginVersion: '1.0.0' },
+  runtime: { ...inventoryFor('0.2.2-alpha.3').runtime, pluginVersion: manifestVersion },
 })
-check('panel title: names the plugin and its version', titled.title === '版本管理 1.0.0', titled.title ?? '')
+check('panel title: names the plugin and its version', titled.title === `版本管理 ${manifestVersion}`, titled.title ?? '')
 check('panel title: works without a Host version', current.title === '版本管理', current.title ?? '')
 
 const upgrading = render(inventoryFor('0.2.2-alpha.2'), { kind: 'upgrade', version: '0.2.2-alpha.4', restart: true })
